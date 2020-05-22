@@ -1,0 +1,22 @@
+{
+  "name": "firebase-read-write-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@firebase/database": "0.6.2",
+    "firebase": "7.14.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}

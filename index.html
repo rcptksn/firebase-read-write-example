@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+
+  <body class="bg-light">
+    <main role="main" class="container">
+      <div
+        class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm"
+      >
+        <img
+          class="mr-3"
+          src="https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-512.png"
+          alt=""
+          width="48"
+          height="48"
+        />
+        <div class="lh-100">
+          <h6 class="mb-0 text-white lh-100">Firebase</h6>
+          <small>ES6 & Firebase (Read & Write)</small>
+        </div>
+      </div>
+
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">User List</h6>
+        <div id="userListContainer"></div>
+        <small class="d-block text-right mt-3">
+          <a href="javascript:;" data-toggle="modal" data-target="#exampleModal"
+            >New User</a
+          >
+        </small>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Kullanıcı Ekle</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="form-name" class="col-form-label">Adı:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="form-name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="form-location" class="col-form-label"
+                    >Soyadı:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="form-surname"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="form-location" class="col-form-label"
+                    >Lokasyon:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="form-location"
+                    required
+                  />
+                </div>
+
+                <div
+                  id="formErr"
+                  class="alert alert-danger d-none"
+                  role="alert"
+                >
+                  Lütfen tüm alanları eksiksiz doldurun!
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                id="modalform-send-button"
+                type="button"
+                class="btn btn-primary"
+              >
+                Kaydet
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
