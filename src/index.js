@@ -36,17 +36,21 @@ const fetchUserList = () => {
       .once("value")
       .then(function(snapshot) {
         if (snapshot.val() !== null) {
-          snapshot.val().forEach(item => {
-            state.userList.push(item);
+          let myData = snapshot.val();
+          for (let index in myData) {
+            state.userList.push(myData[index]);
             resolve(true);
-          });
-          state.lastUserId = snapshot.val().length;
+          }
         }
       });
   });
 };
 
-const writeUserData = (lastUserId, name, surname, location) => {
+const writeUserData = (name, surname, location) => {
+  let lastUserId = 0;
+  if (state.userList.length > 0) {
+    lastUserId = state.userList[state.userList.length - 1].id + 1;
+  }
   firebase
     .database()
     .ref("/" + lastUserId)
@@ -64,25 +68,21 @@ const removeUserData = userId => {
     .remove()
     .then(function() {
       console.log("Remove Ok.");
-      setTimeout(() => {
-        viewUserList();
-      }, 500);
     })
     .catch(function(error) {
       console.log("Remove fail: " + error.message);
     });
-};
 
-viewUserList();
+  viewUserList();
+};
 
 modalFormSendButton.addEventListener("click", function() {
   let name = inputName.value;
   let surname = inputSurname.value;
   let location = inputLocation.value;
-  const { lastUserId } = state;
 
   if (name !== "" && surname !== "" && location !== "") {
-    writeUserData(lastUserId, name, surname, location);
+    writeUserData(name, surname, location);
     formErr.classList.add("d-none");
     viewUserList();
     $("#exampleModal").modal("hide");
@@ -104,3 +104,5 @@ const clearInputValue = () => {
   inputSurname.value = "";
   inputLocation.value = "";
 };
+
+viewUserList();

@@ -8,8 +8,7 @@ export const state = {
     messagingSenderId: "541058403188",
     appId: "1:541058403188:web:90a62f8409570290553a21"
   },
-  userList: [],
-  lastUserId: 0
+  userList: []
 };
 
 export let userListTemplate = `
